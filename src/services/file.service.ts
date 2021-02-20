@@ -6,7 +6,10 @@ export class FileService {
     getFileContentLinesByFileName = (fileName: string): string[] => {
         const file = readFileSync(`src/input-files/${fileName}`, "utf-8");
 
-        return file.split('\n').filter(line => line !== '');
+        return file
+            .split('\n')
+            .filter(line => line !== '')
+            .map(line => line.replace(/[\r]+/g, ''));
     };
 
     writeFileContentLinesByFileName = (fileName: string, data: string[]) => {
