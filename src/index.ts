@@ -9,5 +9,3 @@ console.log(file1);
 
 const data1 = ["asdadbashfbajhsfba","asd adadsadsasd"];
 filesService.writeFileContentLinesByFileName(filename1, data1);
-
-
