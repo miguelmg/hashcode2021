@@ -1,11 +1,17 @@
 import { FileService } from "./services/file.service";
+import {getIntersections} from "./utils/Intersection";
 
 const filesService = new FileService();
 
-const filename1 = 'my-file.txt';
-const file1 = filesService.getFileContentLinesByFileName(filename1);
-console.log(file1);
+const filename = 'a.txt';
+const fileData = filesService.getFileContentLinesByFileName(filename);
+console.log(fileData);
 
+const streetsNumber = 5;
 
-const data1 = ["asdadbashfbajhsfba","asd adadsadsasd"];
-filesService.writeFileContentLinesByFileName(filename1, data1);
+const intersections = getIntersections(fileData, streetsNumber);
+
+console.log(intersections);
+
+// const data1 = ["asdadbashfbajhsfba","asd adadsadsasd"];
+// filesService.writeFileContentLinesByFileName(filename, data1);
