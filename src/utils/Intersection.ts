@@ -9,7 +9,7 @@ const streetParse = {
 }
 
 export const getIntersections = (fileData: string[], streetsNumber: number): Intersection[] => {
-    let interserctions: Intersection[] = [];
+    let intersections: Intersection[] = [];
     let streets: Street[] = [];
 
     const startLine = 1;
@@ -29,19 +29,27 @@ export const getIntersections = (fileData: string[], streetsNumber: number): Int
         ];
 
         const incomingIntersectionIdx = parseInt(streetFragments[streetParse.incommingIntersection]);
-        interserctions[incomingIntersectionIdx].incoming = [
-            ...interserctions[incomingIntersectionIdx].incoming,
+
+        if (!intersections[incomingIntersectionIdx]) {
+            intersections[incomingIntersectionIdx] = {id: incomingIntersectionIdx, incoming: [], outgoing: [], schedule: []};
+        }
+
+        intersections[incomingIntersectionIdx].incoming = [
+            ...intersections[incomingIntersectionIdx].incoming,
             street,
         ];
 
         const outgoingIntersectionIdx: number = parseInt(streetFragments[streetParse.outgoingIntersection]);
-        interserctions[outgoingIntersectionIdx].outgoing = [
-            ...interserctions[outgoingIntersectionIdx].outgoing,
+        if (!intersections[outgoingIntersectionIdx]) {
+            intersections[outgoingIntersectionIdx] = {id: outgoingIntersectionIdx, incoming: [], outgoing: [], schedule: []};
+        }
+        intersections[outgoingIntersectionIdx].outgoing = [
+            ...intersections[outgoingIntersectionIdx].outgoing,
             street,
         ];
     });
 
-    return interserctions;
+    return intersections;
 };
 
 export const getStreets = (): Street[] => {

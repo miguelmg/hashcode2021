@@ -13,7 +13,7 @@ export class FileService {
     };
 
     writeFileContentLinesByFileName = (fileName: string, data: string[]) => {
-        const dataToString = data.toString().replace(',', '\n');
+        const dataToString = data.toString().replace(/,/g, '\n');
         writeFileSync(`src/output-files/${fileName}`, dataToString, "utf-8");
     };
 }
