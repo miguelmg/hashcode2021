@@ -14,7 +14,7 @@ const writeToFile: any = [numberOfIntersections];
 intersections.forEach(intersection => {
    writeToFile.push(intersection.id);
    writeToFile.push(intersection.incoming.length);
-   intersection.incoming.forEach((street: Street) => writeToFile.push(`${street.name} 1`)); //1 second
+   intersection.incoming.forEach((street: Street) => writeToFile.push(`${street.name} ${(Math.floor(Math.random() * Math.floor(4))) + 1}`)); //1 second
 });
 
 filesService.writeFileContentLinesByFileName(filename1, writeToFile);
