@@ -1,11 +1,10 @@
 import { FileService } from "./services/file.service";
-import {Intersection} from "./models/Intersection";
 import {Street} from "./models/Street";
 import {getIntersections} from "./utils/Intersection";
 
 const filesService = new FileService();
 
-const filename1 = 'e.txt';
+const filename1 = 'f.txt';
 const fileByLines = filesService.getFileContentLinesByFileName(filename1);
 const [simulationSeconds, numberOfIntersections, numberOfStreets, numberOfCars, scoreForReaching] = fileByLines[0].split(' ');
 
