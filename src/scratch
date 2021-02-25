@@ -1,0 +1,17 @@
+Intersections[] => Intersection {
+    id: number; // 0, 2, 3
+    incoming: string[] // array de nombres de calles que llegan a la inter
+    outgoing: string[] // que salen de la inter
+    schedule: Schedule[] // <---- incoming.map()
+}
+
+Schedule {
+    streetName: string;
+    greenLightSeconds: number;
+}
+
+
+
+
+
+
