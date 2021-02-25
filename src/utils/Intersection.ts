@@ -2,8 +2,8 @@ import {Intersection} from "../models/Intersection";
 import {Street} from "../models/Street";
 
 const streetParse = {
-    incommingIntersection: 0,
-    outgoingIntersection: 1,
+    outgoingIntersection: 0,
+    incommingIntersection: 1,
     streetName: 2,
     streetTime: 3,
 }
